@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>🌸 四柱推命 占いフォーム</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; max-width: 500px; margin: auto; }
+    h1 { text-align: center; }
+    label { display: block; margin-top: 15px; }
+    input, button { width: 100%; padding: 8px; margin-top: 5px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>🌸 四柱推命 占いフォーム</h1>
+  <form id="baziForm">
+    <label>名前:
+      <input type="text" id="name" required>
+    </label>
+    <label>生年月日:
+      <input type="date" id="birth_date" required>
+    </label>
+    <label>出生時間:
+      <input type="time" id="birth_time" required>
+    </label>
+    <button type="submit">占う</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    document.getElementById("baziForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const birth_date = document.getElementById("birth_date").value;
+      const birth_time = document.getElementById("birth_time").value;
+
+      const res = await fetch("https://shichu-api.onrender.com/sichu", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, birth_date, birth_time })
+      });
+
+      const data = await res.json();
+
+      if (data.error) {
+        document.getElementById("result").innerHTML = `<p style="color:red;">エラー: ${data.error}</p>`;
+        return;
+      }
+
+      document.getElementById("result").innerHTML = `
+        <h2>${data.name} さんの命式</h2>
+        <table>
+          <tr><th>年柱</th><td>${data["年柱"]}</td></tr>
+          <tr><th>月柱</th><td>${data["月柱"]}</td></tr>
+          <tr><th>日柱</th><td>${data["日柱"]}</td></tr>
+          <tr><th>時柱</th><td>${data["時柱"]}</td></tr>
+        </table>
+      `;
+    });
+  </script>
+</body>
+</html>
