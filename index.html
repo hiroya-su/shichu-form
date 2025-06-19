@@ -2,136 +2,138 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <title>🌸 四柱推命フォーム | AstroGate</title>
+  <title>四柱推命占いフォーム</title>
   <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background: #fff5f8;
-      padding: 20px;
-      line-height: 1.6;
-    }
-    h1 {
-      color: #c71585;
-    }
-    form {
-      background: #fff0f5;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      max-width: 500px;
-      margin-bottom: 30px;
-    }
-    label {
-      display: block;
-      margin-top: 15px;
-    }
-    input, select {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-    button {
-      margin-top: 20px;
-      padding: 12px 20px;
-      background: #c71585;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    button:hover {
-      background: #a01370;
-    }
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      margin-top: 30px;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 12px;
-      text-align: center;
-    }
-    th {
-      background-color: #ffe4ec;
-    }
+    body { font-family: sans-serif; padding: 20px; background: #f7f7f7; }
+    label { display: block; margin-top: 15px; }
+    button { margin-top: 20px; padding: 10px 20px; }
+    table { margin-top: 30px; border-collapse: collapse; }
+    th, td { border: 1px solid #ccc; padding: 6px 12px; }
   </style>
 </head>
 <body>
-  <h1>🌸 四柱推命命式表</h1>
-  <form id="form">
-    <label>お名前：
-      <input type="text" name="name" required />
+  <h1>四柱推命占いフォーム</h1>
+  <form id="sichu-form">
+    <label>お名前:
+      <input type="text" name="name" required>
     </label>
-    <label>生年月日：
-      <input type="date" name="birth" required />
+
+    <label>生年月日:
+      <input type="date" name="birthdate" required>
     </label>
-    <label>出生時間（時）：
-      <select name="hour">
-        <option value="0">0時</option>
-        <option value="1">1時</option>
-        <option value="2">2時</option>
-        <option value="3">3時</option>
-        <option value="4">4時</option>
-        <option value="5">5時</option>
-        <option value="6">6時</option>
-        <option value="7">7時</option>
-        <option value="8">8時</option>
-        <option value="9">9時</option>
-        <option value="10">10時</option>
-        <option value="11">11時</option>
-        <option value="12" selected>12時</option>
-        <option value="13">13時</option>
-        <option value="14">14時</option>
-        <option value="15">15時</option>
-        <option value="16">16時</option>
-        <option value="17">17時</option>
-        <option value="18">18時</option>
-        <option value="19">19時</option>
-        <option value="20">20時</option>
-        <option value="21">21時</option>
-        <option value="22">22時</option>
-        <option value="23">23時</option>
+
+    <label>出生時間（24時間制）:
+      <input type="time" name="birthtime" required>
+    </label>
+
+    <label for="birthplace">出生地（都道府県）</label>
+<select name="birthplace" required>
+  <option value="">選択してください</option>
+  <option value="北海道">北海道</option>
+  <option value="青森県">青森県</option>
+  <option value="岩手県">岩手県</option>
+  <option value="宮城県">宮城県</option>
+  <option value="秋田県">秋田県</option>
+  <option value="山形県">山形県</option>
+  <option value="福島県">福島県</option>
+  <option value="茨城県">茨城県</option>
+  <option value="栃木県">栃木県</option>
+  <option value="群馬県">群馬県</option>
+  <option value="埼玉県">埼玉県</option>
+  <option value="千葉県">千葉県</option>
+  <option value="東京都">東京都</option>
+  <option value="神奈川県">神奈川県</option>
+  <option value="新潟県">新潟県</option>
+  <option value="富山県">富山県</option>
+  <option value="石川県">石川県</option>
+  <option value="福井県">福井県</option>
+  <option value="山梨県">山梨県</option>
+  <option value="長野県">長野県</option>
+  <option value="岐阜県">岐阜県</option>
+  <option value="静岡県">静岡県</option>
+  <option value="愛知県">愛知県</option>
+  <option value="三重県">三重県</option>
+  <option value="滋賀県">滋賀県</option>
+  <option value="京都府">京都府</option>
+  <option value="大阪府">大阪府</option>
+  <option value="兵庫県">兵庫県</option>
+  <option value="奈良県">奈良県</option>
+  <option value="和歌山県">和歌山県</option>
+  <option value="鳥取県">鳥取県</option>
+  <option value="島根県">島根県</option>
+  <option value="岡山県">岡山県</option>
+  <option value="広島県">広島県</option>
+  <option value="山口県">山口県</option>
+  <option value="徳島県">徳島県</option>
+  <option value="香川県">香川県</option>
+  <option value="愛媛県">愛媛県</option>
+  <option value="高知県">高知県</option>
+  <option value="福岡県">福岡県</option>
+  <option value="佐賀県">佐賀県</option>
+  <option value="長崎県">長崎県</option>
+  <option value="熊本県">熊本県</option>
+  <option value="大分県">大分県</option>
+  <option value="宮崎県">宮崎県</option>
+  <option value="鹿児島県">鹿児島県</option>
+  <option value="沖縄県">沖縄県</option>
+</select>
+    </label>
+
+    <label>性別:
+      <select name="gender" required>
+        <option value="">選択してください</option>
+        <option value="男">男性</option>
+        <option value="女">女性</option>
+        <option value="その他">その他</option>
       </select>
     </label>
+
     <button type="submit">占う</button>
   </form>
 
   <div id="result"></div>
 
   <script>
-    document.getElementById("form").addEventListener("submit", async function(e) {
+    const form = document.getElementById('sichu-form');
+    const resultDiv = document.getElementById('result');
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const formData = new FormData(e.target);
-      const payload = Object.fromEntries(formData.entries());
+      resultDiv.innerHTML = '占い中...';
 
-      const response = await fetch("https://shichu-api.onrender.com/sichu", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-      });
+      const formData = new FormData(form);
+      const data = {
+        name: formData.get('name'),
+        birthdate: formData.get('birthdate'),
+        birthtime: formData.get('birthtime'),
+        birthplace: formData.get('birthplace'),
+        gender: formData.get('gender')
+      };
 
-      if (!response.ok) {
-        alert("API通信エラーが発生しました");
-        return;
+      try {
+        const res = await fetch('https://shichu-api.onrender.com/sichu', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        const result = await res.json();
+
+        resultDiv.innerHTML = `
+          <h2>${data.name}さん（${data.gender}）の命式</h2>
+          <table>
+            <tr><th>柱</th><th>年柱</th><th>月柱</th><th>日柱</th><th>時柱</th></tr>
+            <tr><td>天干</td><td>${result.tenkan[3]}</td><td>${result.tenkan[2]}</td><td>${result.tenkan[1]}</td><td>${result.tenkan[0]}</td></tr>
+            <tr><td>地支</td><td>${result.chishi[3]}</td><td>${result.chishi[2]}</td><td>${result.chishi[1]}</td><td>${result.chishi[0]}</td></tr>
+            <tr><td>通変星</td><td>${result.tsuhensei[3]}</td><td>${result.tsuhensei[2]}</td><td>${result.tsuhensei[1]}</td><td>${result.tsuhensei[0]}</td></tr>
+          </table>
+          <h3>解説</h3>
+          <p>${result.comment}</p>
+        `;
+      } catch (err) {
+        resultDiv.innerHTML = 'エラーが発生しました。';
+        console.error(err);
       }
-
-      const data = await response.json();
-      const resultDiv = document.getElementById("result");
-      const meishiki = data["命式"];
-
-      let html = `<h2>🔮 ${data.name} さんの命式</h2>`;
-      html += `<table>
-        <tr><th></th><th>年柱</th><th>月柱</th><th>日柱</th><th>時柱</th></tr>
-        <tr><th>天干</th><td>${meishiki["年柱"].干}</td><td>${meishiki["月柱"].干}</td><td>${meishiki["日柱"].干}</td><td>${meishiki["時柱"].干}</td></tr>
-        <tr><th>地支</th><td>${meishiki["年柱"].支}</td><td>${meishiki["月柱"].支}</td><td>${meishiki["日柱"].支}</td><td>${meishiki["時柱"].支}</td></tr>
-        <tr><th>通変星</th><td>${meishiki["年柱"].通変星}</td><td>${meishiki["月柱"].通変星}</td><td>${meishiki["日柱"].通変星}</td><td>${meishiki["時柱"].通変星}</td></tr>
-      </table>`;
-      
-      resultDiv.innerHTML = html;
     });
   </script>
 </body>
